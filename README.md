@@ -9,7 +9,7 @@ In Unity forum/На форуме Unity: [**https://forum.unity.com/threads/read-
 
 ## EN
 
-Documentation [**here**](https://github.com/illa4257/iniStorageForUnity/docs/en.md).
+Documentation [**here**](https://github.com/illa4257/iniStorageForUnity/blob/master/docs/en.md).
 
 ### How to put?
 
@@ -17,7 +17,7 @@ Move the [**script**](https://github.com/illa4257/iniStorageForUnity/releases) t
 
 ## RU
 
-Документация [**здесь**](https://github.com/illa4257/iniStorageForUnity/docs/ru.md).
+Документация [**здесь**](https://github.com/illa4257/iniStorageForUnity/blob/master/docs/ru.md).
 
 ### Как поставить?
 
