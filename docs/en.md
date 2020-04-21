@@ -2,8 +2,8 @@
 
 * Object iniStorage
   - iniStorage.path - path to ini file (If there is no file, then the script itself will create it when you call some function!), default path is dataPath/config.ini
-  - [**iniStorage.set(string key, string value) : void**](#iniStorage-setstring-key-string-value--void)
-  - [**iniStorage.get(string key) : string**](#iniStorage-getstring-key--string)
+  - [**iniStorage.set(string key, string value) : void**](#inistoragesetstring-key-string-value--void)
+  - [**iniStorage.get(string key) : string**](#inistoragegetstring-key--string)
 
 ## iniStorage.set(string key, string value) : void
 
