@@ -15,6 +15,15 @@ Documentation [**here**](https://github.com/illa4257/iniStorageForUnity/blob/mas
 
 Move the [**script**](https://github.com/illa4257/iniStorageForUnity/releases) to the project.
 
+### Example:
+```c#
+iniStorage iniParser = new iniStorage;
+
+iniParser.path = "config.ini";
+iniParser.set("test", "myValue");
+Debug.Log(iniParser.get("test"));
+```
+
 ## RU
 
 Документация [**здесь**](https://github.com/illa4257/iniStorageForUnity/blob/master/docs/ru.md).
@@ -22,3 +31,12 @@ Move the [**script**](https://github.com/illa4257/iniStorageForUnity/releases) t
 ### Как поставить?
 
 Переместите [**скрипт**](https://github.com/illa4257/iniStorageForUnity/releases) в проект.
+
+### Пример:
+```c#
+iniStorage iniParser = new iniStorage;
+
+iniParser.path = "config.ini";
+iniParser.set("тест", "Моё значение");
+Debug.Log(iniParser.get("тест"));
+```
