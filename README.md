@@ -1,42 +1,94 @@
-# Work with ini files/Работа с ini файлами
+# IniStorage for Unity - Working with ini files in Unity!
 
-* Code can be changed/Код можно изменять! :)
+* Code can be changed! :)
 
-* Tested on Unity/Протестирован на Unity:
-  - 2019.3.7f1
+* Tested on Unity:
+  - 2021.2.7f1
 
-In Unity forum/На форуме Unity: [**https://forum.unity.com/threads/read-write-ini-file-chtenie-zapis-ini-fajla.857215/**](https://forum.unity.com/threads/read-write-ini-file-chtenie-zapis-ini-fajla.857215/)
+In Unity forum: [**https://forum.unity.com/threads/read-write-ini-file.857215/**](https://forum.unity.com/threads/read-write-ini-file.857215/)
 
-## EN
-
-Documentation [**here**](https://github.com/illa4257/iniStorageForUnity/blob/master/docs/en.md).
+---
 
 ### How to put?
 
 Move the [**script**](https://github.com/illa4257/iniStorageForUnity/releases) to the project.
 
 ### Example:
+Code:
 ```c#
-iniStorage iniParser = new iniStorage;
+var ini = new IniStorage(Application.dataPath + "/config.ini");
 
-iniParser.path = "config.ini";
-iniParser.set("test", "myValue");
-Debug.Log(iniParser.get("test"));
+if(!ini.Contains("Test"))
+    ini.Set("Test", "Test string")
+        .ClearComments()
+        .AddComment("Test comment")
+        .AddComment("Test comment 2");
+
+if (!ini.Contains("Test2"))
+    ini.Set("Test2", "Test string");
+
+if (!ini.Contains("Test3"))
+    ini.Set("Test3", "Test string");
+
+if (!ini.Contains("Test4"))
+    ini.Set("Test4", "Test string")
+        .AddComment("Test comment");
+
+if (!ini.Contains("Test5"))
+    ini.Set("Test5", "Test string");
+
+if (!ini.Contains("TestGroup", "Test"))
+    ini.Set("TestGroup", "Test", 5.545434f)
+        .ClearComments()
+        .AddComment("Test group pair comment");
+
+if (!ini.Contains("TestGroup", "Test2"))
+    ini.Set("TestGroup", "Test2", "Test value");
+
+ini.GetGroup("TestGroup")
+    .ClearComments()
+    .AddComment("Test group comment!");
+
+if (!ini.Contains("TestGroup", "Test3"))
+    ini.Set("TestGroup", "Test3", "Test value 2");
+
+if (!ini.ContainsEndComment("End comment"))
+    ini.ClearEndComments()
+        .AddEndComment("End comment")
+        .AddEndComment("End comment 2");
+
+ini.Save();
+
+Debug.Log(ini.GetStringOrDefault("Test", "None"));
+Debug.Log(ini.GetFloat("TestGroup", "Test"));
+Debug.Log(ini.GetFloatOrDefault("TestGroup", "Test2", 0f));
 ```
 
-## RU
+config.ini:
+```ini
+#Test comment
+#Test comment 2
+Test=Test string
+Test2=Test string
+Test3=Test string
+Test4=Test string
+Test5=Test string
 
-Документация [**здесь**](https://github.com/illa4257/iniStorageForUnity/blob/master/docs/ru.md).
+#Test group comment!
+[TestGroup]
 
-### Как поставить?
+#Test group pair comment
+Test=5,545434
+Test2=Test value
+Test3=Test value 2
 
-Переместите [**скрипт**](https://github.com/illa4257/iniStorageForUnity/releases) в проект.
+#End comment
+#End comment 2
+```
 
-### Пример:
-```c#
-iniStorage iniParser = new iniStorage;
-
-iniParser.path = "config.ini";
-iniParser.set("тест", "Моё значение");
-Debug.Log(iniParser.get("тест"));
+Logs:
+```
+Test string
+5.545434
+0
 ```
